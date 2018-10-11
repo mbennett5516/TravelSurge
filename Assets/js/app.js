@@ -72,7 +72,7 @@ const searchFunction = function (e) {
 
 const render = function () {
   let content = '';
-  $('#results').empty();
+  $('#results').empty;
   if (eventArray.length === 0) {
     content = `<div class="row animated slideInLeft">
         <div class="card-body col-12 animated slideInLeft"><h5>No Results Found</h5></div></div>`;
@@ -147,7 +147,14 @@ const render = function () {
   getFoursquareNightlife();
   $(document).ajaxStop(function () {
     let counter = 0;
-    console.log(hotelArray);  
+    // console.log(hotelArray);  
+    for (let i=0;i<eventArray.length;i++){
+      for (let j=0;j<5;j++){
+        $(`#hotelData${i}`).empty();
+        $(`#restaurantData${i}`).empty();
+        $(`#nightlifeData${i}`).empty();
+      }
+    }
     for (let i=0;i<eventArray.length;i++){
       for (let j=0;j<5;j++){
         $(`#hotelData${i}`).append(`<p>${hotelArray[counter]}</p>`);
