@@ -72,7 +72,7 @@ const searchFunction = function (e) {
 
 const render = function () {
   let content = '';
-  $('#results').empty;
+  $('#results').empty();
   if (eventArray.length === 0) {
     content = `<div class="row animated slideInLeft">
         <div class="card-body col-12 animated slideInLeft"><h5>No Results Found</h5></div></div>`;

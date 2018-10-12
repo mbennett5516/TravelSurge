@@ -92,7 +92,9 @@ html, body{
     padding: 0;
 }
 
-
+#buffer{
+    height: 10vh;
+}
 
 
 @media (orientation:portrait){
