@@ -149,18 +149,15 @@ const render = function () {
     let counter = 0;
     // console.log(hotelArray);  
     for (let i=0;i<eventArray.length;i++){
-      for (let j=0;j<5;j++){
         $(`#hotelData${i}`).empty();
         $(`#restaurantData${i}`).empty();
         $(`#nightlifeData${i}`).empty();
-      }
     }
     for (let i=0;i<eventArray.length;i++){
-      for (let j=0;j<5;j++){
-        $(`#hotelData${i}`).append(`<p>${hotelArray[counter]}</p>`);
-        $(`#restaurantData${i}`).append(`<p>${restaurantArray[counter]}</p>`);
-        $(`#nightlifeData${i}`).append(`<p>${nightlifeArray[counter]}</p> + <hr>`);
-        counter++;
+      for (let j=0;j<hotelArray[i].length;j++){
+        $(`#hotelData${i}`).append(`<p>${hotelArray[i][j].name}</p>`);
+        $(`#restaurantData${i}`).append(`<p>${restaurantArray[i][j].name}</p>`);
+        $(`#nightlifeData${i}`).append(`<p>${nightlifeArray[i][j].name}</p>`);
       }
     }
   })
@@ -180,10 +177,8 @@ function getFoursquareHotel() {
       dataType: 'json',
       success: function (data) {
         var venues = data.response.venues;
-        console.log(data);
-        for (let i=0; i<venues.length; i++){
-          hotelArray.push(venues[i].name)
-        }
+        hotelArray.push(venues);
+        // console.log(hotelArray);
       }
     });
   };
@@ -202,10 +197,8 @@ function getFoursquareFood() {
       dataType: 'json',
       success: function (data) {
         var venues = data.response.venues;
-        console.log(data);
-        for (let i=0; i<venues.length; i++){
-          restaurantArray.push(venues[i].name)
-        }
+        // console.log(data);
+        restaurantArray.push(venues);
     }
     });
   };
@@ -223,10 +216,8 @@ function getFoursquareNightlife() {
       dataType: 'json',
       success: function (data) {
         var venues = data.response.venues;
-        console.log(data);
-        for (let i=0; i<venues.length; i++){
-          nightlifeArray.push(venues[i].name)
-        }
+        // console.log(data);
+       nightlifeArray.push(venues);
     }
     });
   }
